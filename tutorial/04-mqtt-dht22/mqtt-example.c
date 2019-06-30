@@ -459,7 +459,10 @@ publish(void)
   
   int send=0;
   int16_t temperature_aux, humidity_aux;
-  if(dht22_read_all(&temperature_aux, &humidity_aux) != DHT22_ERROR) {
+ // if(dht22_read_all(&temperature_aux, &humidity_aux) != DHT22_ERROR)
+ {
+	temperature=20;
+	humidity=50;
     send=1;
       len = snprintf(buf_ptr, remaining, ",\"data\":{\"temperature\":\" %02d.%02d\",\"hum\":\"%02d.%02d\"}",  temperature / 10, temperature % 10,humidity / 10, humidity % 10);
    }
